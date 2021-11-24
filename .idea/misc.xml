@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_feed.xml" value="0.2884963768115942" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_main.xml" value="0.2884963768115942" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/tweet_item.xml" value="0.5" />
       </map>
     </option>
   </component>
@@ -12,5 +14,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2884963768115942" />
+      </ProjectState>
+    </option>
   </component>
 </project>
