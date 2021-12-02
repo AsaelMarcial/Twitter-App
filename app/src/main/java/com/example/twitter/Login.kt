@@ -34,6 +34,15 @@ class Login : AppCompatActivity() {
         val user = findViewById<TextView>(R.id.username)
         val pass = findViewById<TextView>(R.id.password)
 
+        val registroClick = findViewById<Button>(R.id.btnRegistro)
+        registroClick.setOnClickListener{
+            registroClick.setOnClickListener {
+                val intento1 = Intent(this, registro::class.java)
+                startActivity(intento1)
+            }
+        }
+
+
         val loginClick = findViewById<Button>(R.id.btnLogin)
         loginClick.setOnClickListener {
             if (user.length() != 0 && pass.length() != 0) {
