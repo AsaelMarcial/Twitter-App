@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.22389558232931728" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout-w1240dp/activity_login2.xml" value="0.10776439089692101" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout-w936dp/activity_login.xml" value="0.261328125" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout-w936dp/activity_login2.xml" value="0.12578125" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_feed.xml" value="0.2884963768115942" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_login2.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_main.xml" value="0.2884963768115942" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_perfil.xml" value="0.265625" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/tweet_item.xml" value="0.5" />
       </map>
     </option>

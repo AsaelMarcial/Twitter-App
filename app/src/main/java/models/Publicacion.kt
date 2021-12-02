@@ -1,9 +1,10 @@
 package models
 
 data class Publicacion(
-    val idPublicacion: Int,
-    val fechaPub: String,
-    val horaPub: String,
+    val id: Int,
+    val idUsuario: Int,
+    val descripcion: String,
     val idMultimedia: Int,
-    val descripcion: String
-)
+    val createdAt: String,
+    val updatedAt: String
+    )
