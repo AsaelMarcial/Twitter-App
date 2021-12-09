@@ -16,6 +16,7 @@
         <activity
             android:name=".registro"
             android:exported="false" />
+        <activity
             android:name=".test"
             android:exported="false"
             android:label="@string/title_activity_test" />

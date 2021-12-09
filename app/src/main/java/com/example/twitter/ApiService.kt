@@ -1,15 +1,13 @@
 package com.example.twitter
 
-import models.Constants
 import models.LoginResponse
-import models.RegisterResponse
 import models.Post
+import models.RegisterResponse
 import models.Usuario
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
+import retrofit2.http.POST
+import okhttp3.RequestBody
 
 
 interface ApiService {
@@ -18,6 +16,7 @@ interface ApiService {
     @POST("/api/register")
     fun register(@PartMap map: HashMap<String?, RequestBody?>): Call<RegisterResponse>
 
+    @Multipart
     @POST("/api/login")
     fun login(@PartMap map: HashMap<String?, RequestBody?>): Call<LoginResponse>
 
@@ -26,5 +25,6 @@ interface ApiService {
 
     @GET("/api/misPosts")
     fun getMisPost(@Header("Authorization") token: String): Call<Post>
+
 
 }

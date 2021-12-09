@@ -26,11 +26,9 @@ class Login : AppCompatActivity() {
         val pass = findViewById<TextView>(R.id.password)
 
         val registroClick = findViewById<Button>(R.id.btnRegistro)
-        registroClick.setOnClickListener{
-            registroClick.setOnClickListener {
-                val intento1 = Intent(this, registro::class.java)
-                startActivity(intento1)
-            }
+        registroClick.setOnClickListener {
+            val intento1 = Intent(this, registro::class.java)
+            startActivity(intento1)
         }
 
 
@@ -59,10 +57,11 @@ class Login : AppCompatActivity() {
                         if (response.isSuccessful) {
                             val token = response.body()?.token
                             val intento1 = Intent(this@Login, test::class.java)
-                                //intento1.putExtra("token", token)
+                            //intento1.putExtra("token", token)
                             startActivity(intento1)
                         }
                     }
+
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         println("Error" + t.message)
                         Toast.makeText(this@Login, "Verificar datos", Toast.LENGTH_SHORT).show()
