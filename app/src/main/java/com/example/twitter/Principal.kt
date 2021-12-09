@@ -7,16 +7,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.twitter.databinding.ActivityTestBinding
+import com.example.twitter.databinding.ActivityPrincipalBinding
 
-class test : AppCompatActivity() {
+class Principal : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTestBinding
+    private lateinit var binding: ActivityPrincipalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityTestBinding.inflate(layoutInflater)
+        binding = ActivityPrincipalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView

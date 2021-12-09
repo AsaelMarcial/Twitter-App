@@ -1,4 +1,4 @@
-package com.example.twitter.ui.dashboard
+package com.example.twitter.ui.perfil
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

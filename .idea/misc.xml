@@ -14,11 +14,14 @@
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_login2.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_main.xml" value="0.2884963768115942" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_perfil.xml" value="0.33" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_principal.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_registro.xml" value="0.1" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/activity_test.xml" value="0.1" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/fragment_buscar.xml" value="0.12892603850050657" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/fragment_dashboard.xml" value="0.2869791666666667" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/fragment_home.xml" value="0.2884963768115942" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/fragment_notifications.xml" value="0.2869791666666667" />
+        <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/fragment_perfil.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/layout/tweet_item.xml" value="0.5" />
         <entry key="..\:/Users/asael/Documents/Twitter-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
