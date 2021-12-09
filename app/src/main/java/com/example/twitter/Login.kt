@@ -56,9 +56,9 @@ class Login : AppCompatActivity() {
                     ) {
                         if (response.isSuccessful) {
                             val token = response.body()?.token
-                            val intento1 = Intent(this@Login, Principal::class.java)
-                            //intento1.putExtra("token", token)
-                            startActivity(intento1)
+                            val intento = Intent(this@Login, Principal::class.java)
+                            intento.putExtra("token", token)
+                            startActivity(intento)
                         }
                     }
 
