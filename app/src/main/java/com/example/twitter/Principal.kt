@@ -2,27 +2,37 @@ package com.example.twitter
 
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.twitter.ui.home.InicioFragment
-import com.example.twitter.ui.notifications.BuscarFragment
+import com.example.twitter.ui.buscar.BuscarFragment
 import com.example.twitter.ui.perfil.PerfilFragment
 import kotlinx.android.synthetic.main.activity_principal.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody.Part.Companion.create
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-class Principal : AppCompatActivity(R.layout.activity_principal) {
 
+class Principal : AppCompatActivity(R.layout.activity_principal), NoticeDialogFragment.NoticeDialogListener {
 
+    var token : String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //replaceFragment(perfilView)
 
         val extras = intent.extras
-        val token = extras?.getString("token")
+        token = extras?.getString("token")
         println("Token desde principal: "+ token)
 
         if (savedInstanceState == null) {
@@ -62,13 +72,34 @@ class Principal : AppCompatActivity(R.layout.activity_principal) {
         }
     }
 
-    private fun replaceFragment(fragment : Fragment, token : String?) {
-        if(fragment != null){
-            val bundle = bundleOf("token" to token)
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_fragment, fragment)
-            transaction.commit()
-        }
+    override fun onDialogPositiveClick(tweet: String) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://www.ramiro.digital/api/createPost/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(ApiService::class.java)
+
+
+        println(tweet)
+        val response = service.createPost("Bearer " + token,tweet)
+
+        response.enqueue(object : Callback<CreatePostResponse>{
+            override fun onResponse(
+                call: Call<CreatePostResponse>,
+                response: Response<CreatePostResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@Principal, response.body()?.message, Toast.LENGTH_SHORT).show()
+                    println(tweet)
+                }
+            }
+            override fun onFailure(call: Call<CreatePostResponse>, t: Throwable) {
+                println("Error" + t.message)
+                Toast.makeText(this@Principal, "Verificar datos", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
     }
 
 
