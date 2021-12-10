@@ -1,5 +1,6 @@
 package com.example.twitter.ui.buscar
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextWatcher
 import android.util.Log
@@ -8,11 +9,11 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.core.view.size
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.twitter.ApiService
-import com.example.twitter.BusquedaAdapter
-import com.example.twitter.PostAdapter
-import com.example.twitter.R
+import com.example.twitter.*
+import com.example.twitter.ui.perfil.PerfilFragment
 import kotlinx.android.synthetic.main.fragment_buscar.*
 import kotlinx.android.synthetic.main.fragment_inicio.*
 import layout.BuscarUsuarioResponse
@@ -27,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class BuscarFragment : Fragment(R.layout.fragment_buscar) {
 
+    lateinit var id : String
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val token = requireArguments().getString("token")
@@ -34,8 +36,15 @@ class BuscarFragment : Fragment(R.layout.fragment_buscar) {
         cargarTweets(token);
 
         btnBuscar.setOnClickListener {
-            buscarUsuarios(txtBuscar.text.toString())
-            buscarPublicacion(txtBuscar.text.toString())
+            if(txtBuscar.length() > 0){
+                buscarUsuarios(txtBuscar.text.toString())
+                buscarPublicacion(txtBuscar.text.toString())
+            }
+        }
+
+        usuarioEncontrado.setOnClickListener {
+            println("clic" + id)
+            (activity as Principal)?.verPerfil(id)
         }
     }
 
@@ -87,6 +96,7 @@ class BuscarFragment : Fragment(R.layout.fragment_buscar) {
                 if(response.isSuccessful){
                     val obj : BuscarUsuarioResponse? = response.body()
                     loadUsuarios(obj?.id.toString())
+                    id = obj?.id.toString()
                 }else{
                     println("response:" + response.message())
 
@@ -161,7 +171,6 @@ class BuscarFragment : Fragment(R.layout.fragment_buscar) {
 
 
     }
-
 
 
 }

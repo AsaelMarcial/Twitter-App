@@ -1,6 +1,7 @@
 package com.example.twitter
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -102,5 +103,12 @@ class Principal : AppCompatActivity(R.layout.activity_principal), NoticeDialogFr
 
     }
 
+    fun verPerfil(id : String){
+        println("respuesta desde principal: " + id)
+        val intento = Intent(this@Principal, Perfil::class.java)
+        intento.putExtra("id", id)
+        intento.putExtra("token",token)
+        startActivity(intento)
+    }
 
 }

@@ -31,6 +31,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
+                card_view:srcCompat="@drawable/user_person_profile_avatar_icon_190943"
                 tools:src="@tools:sample/avatars[3]" />
 
             <LinearLayout

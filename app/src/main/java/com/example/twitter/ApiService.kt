@@ -41,9 +41,6 @@ interface ApiService {
     @GET("/api/{idUsuario}/mostrarCuenta")
     fun mostarCuenta(@Path("idUsuario") id: Int): Call<MostrarCuentaResponse>
 
-    @GET("/api/{idSeguido}/seguirUsuario")
-    fun seguirCuenta(@Path("idUsuario") id: Int): Call<MessageResponse>
-
     @GET("/api/{username}/buscarUsuario")
     fun buscarUsuario(@Path("username") id: String): Call<BuscarUsuarioResponse>
 
@@ -52,5 +49,14 @@ interface ApiService {
 
     @GET("/api/{palabra}/buscarPublicacion")
     fun buscarPalabra(@Path("palabra") palabra: String): Call<BuscarResponse>
+
+    @POST("/api/{idSeguido}/seguirUsuario")
+    fun seguirUsuario(@Header("Authorization") token: String, @Path("idSeguido") id: Int): Call<MessageResponse>
+
+    @GET("/api/{idUsuario}/getPostsPerfilUsuario")
+    fun getPostsUsuario(@Header("Authorization") token: String, @Path("idUsuario") id: Int): Call<BuscarResponse>
+
+    @GET("/api/{idSeguido}/unfollowUsuario")
+    fun unfollow(@Header("Authorization") token: String, @Path("idSeguido") id: Int): Call<MessageResponse>
 
 }

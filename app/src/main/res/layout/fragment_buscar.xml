@@ -39,7 +39,7 @@
             android:text="Usuarios" />
 
         <LinearLayout
-            android:id="@+id/UsuarioEncontrado"
+            android:id="@+id/usuarioEncontrado"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
@@ -52,7 +52,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:clickable="true"
-                tools:srcCompat="@tools:sample/avatars[3]" />
+                app:srcCompat="@drawable/user_person_profile_avatar_icon_190943"
+                tools:src="@tools:sample/avatars[3]"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

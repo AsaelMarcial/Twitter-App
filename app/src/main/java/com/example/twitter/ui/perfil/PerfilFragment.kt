@@ -32,15 +32,9 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
             loadTweets(token)
 
 
-        btnSeguir.setOnClickListener {
-
-
-        }
-
     }
 
     private fun loadProfile(token : String?){
-        btnSeguir.visibility = View.INVISIBLE
         val retrofit = Retrofit.Builder()
             .baseUrl("http://www.ramiro.digital/api/misPosts/")
             .addConverterFactory(GsonConverterFactory.create())
