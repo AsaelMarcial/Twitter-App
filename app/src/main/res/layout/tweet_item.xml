@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:id="@+id/card_pertanyaan"
+    card_view:cardBackgroundColor="#FFFF"
+    card_view:cardCornerRadius="8dp"
+    card_view:contentPadding="10dp"
+    android:foreground="?selectableItemBackground"
+    android:clickable="true">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -19,7 +30,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                tools:src="@tools:sample/avatars[3]" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -29,14 +41,14 @@
                 android:layout_marginTop="7dp">
 
                 <TextView
-                    android:id="@+id/lblNickname"
+                    android:id="@+id/txNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Nombre del usuario"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/lblInfo"
+                    android:id="@+id/txInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="userName"
@@ -48,11 +60,12 @@
         <TextView
             android:id="@+id/lblTweet"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Esto es un tweet"/>
+
 
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>

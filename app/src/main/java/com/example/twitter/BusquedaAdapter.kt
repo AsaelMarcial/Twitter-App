@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import models.BuscarResponse
 import models.MostrarCuentaResponse
 import models.Post
 import retrofit2.Call
@@ -14,19 +15,19 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PostAdapter(private val tweetList: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class BusquedaAdapter(private val tweetList: BuscarResponse) : RecyclerView.Adapter<BusquedaAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view  = LayoutInflater.from(parent.context).inflate(R.layout.tweet_item,parent,false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return tweetList.size
+        return tweetList.posts.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("Response", "List Count :${tweetList.size} ")
-        return holder.bind(tweetList[position])
+        Log.d("Response", "List Count :${tweetList.posts.size} ")
+        return holder.bind(tweetList.posts[position])
     }
 
 
@@ -43,9 +44,9 @@ class PostAdapter(private val tweetList: List<Post>) : RecyclerView.Adapter<Post
 
         var texto = itemView.findViewById<TextView>(R.id.lblTweet)
         var info = itemView.findViewById<TextView>(R.id.txInfo)
-        fun bind(tweet: Post) {
+        fun bind(tweet: BuscarResponse.Post) {
             val response = service.mostarCuenta(tweet.idUsuario)
-            response.enqueue(object : Callback<MostrarCuentaResponse>{
+            response.enqueue(object : Callback<MostrarCuentaResponse> {
                 override fun onResponse(call: Call<MostrarCuentaResponse>, response: Response<MostrarCuentaResponse>) {
                     if (response.isSuccessful) {
                         val body : MostrarCuentaResponse? = response.body()
@@ -59,9 +60,8 @@ class PostAdapter(private val tweetList: List<Post>) : RecyclerView.Adapter<Post
                 }
             })
             texto.text = tweet.descripcion
-            info.text = tweet.updatedAt.subSequence(0,10)
+            info.text = tweet.updated_at.subSequence(0,10)
             //Picasso.get().load(country.countryInfo.flag).into(imageView)
         }
     }
 }
-
